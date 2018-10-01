@@ -7,7 +7,17 @@ public class SortTest
        return exp;
    }
    //test uniform arrays (just print)
-
+   public static boolean testInit(){
+      final int k = 1000;
+      boolean v1 = true;
+      int[] arr1 = new int[k];
+      int[] arr2 = new int[k];
+      int[] arr3 = new int[k];
+      SortTimes.randInit(arr1, arr2, arr3, k);
+      v1 = v1 && proclaim(arr1[25] == arr2[25], "1 and 2 mismatch");
+      v1 = v1 && proclaim(arr2[25] == arr3[25], "2 and 3 mismatch");
+      return v1;
+   }
    //test bounds
    public static boolean testBounds(){
       final int k = 1000;
@@ -25,11 +35,31 @@ public class SortTest
    }
 
    //test order
-
-
+   public static boolean testOrder(int[] arr1, int N){
+      boolean v1 = true;
+      final int k = 1000;
+      for(int i = 0; i < N-1; i++){
+         if (arr1[i] > arr1[i+1]){
+            return false;
+         }
+      }    
+      return true;
+   }
    public static void main(String[] args){
       boolean validity = true;
+      final int k = 160000;
+      int[] arr1 = new int[k];
+      int[] arr2 = new int[k];
+      int[] arr3 = new int[k];
+      randInit(arr1, arr2, arr3, k);
+      Sorts.selectionSort(arr1, k);
+      Sorts.mergeSort(arr2, k);
+      Sorts.quickSort(arr3, k);
       validity = validity && testBounds();
+      validity = validity && testInit();
+      validity = validity && testOrder(arr1, k);
+      validity = validity && testOrder(arr2, k);
+      validity = validity && testOrder(arr3, k);
       if (validity)
           System.out.println("passed all tests");
       else

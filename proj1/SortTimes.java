@@ -33,7 +33,7 @@ public class SortTimes
    {
       for (int i = 0; i < N; i++)
       {
-         int rand = (int)(Math.random()) * N;
+         int rand = (int)((Math.random()) * N);
          a1[i] = rand;
          a2[i] = rand;
          a3[i] = rand;
