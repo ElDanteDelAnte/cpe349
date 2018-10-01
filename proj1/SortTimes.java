@@ -29,7 +29,7 @@ public class SortTimes
    }
 
    //generates random lists to be sorted
-   private static void randInit(int[] a1, int[] a2, int[] a3, int N)
+   public static void randInit(int[] a1, int[] a2, int[] a3, int N)
    {
       for (int i = 0; i < N; i++)
       {
