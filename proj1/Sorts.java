@@ -113,7 +113,7 @@ public class Sorts
       //set pivot to last element of list-segment
       //WHILE two indicies don't cross over (includes when they are equal)
          //move indexL right as long as vals < pivot
-         //movr indexR left as long as vals > pivot
+         //move indexR left as long as vals > pivot  (check indicies first!)
          //IF indecies don't cross over (including equal)
             //swap values at indexL and indexR
             //inc indexL, dec indexR
