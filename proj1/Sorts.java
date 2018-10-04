@@ -7,7 +7,7 @@ public class Sorts
       //find min
       for(int i = 0; i < N - 1; i++){
          minIndex = i;
-         for(int j = i; j < N; j++){
+         for(int j = i + 1; j < N; j++){
             if(arr[j] < arr[minIndex]){
                minIndex = j;
             }    
