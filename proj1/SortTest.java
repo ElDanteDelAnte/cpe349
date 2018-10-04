@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class SortTest
 {
    private static boolean proclaim(boolean exp, String m){
@@ -38,7 +40,7 @@ public class SortTest
    public static boolean testOrder(int[] arr1, int N){
       boolean v1 = true;
       final int k = 1000;
-      for(int i = 0; i < N-1; i++){
+      for(int i = 0; i < (N - 1); i++){
          if (arr1[i] > arr1[i+1]){
             System.out.println("Problem at index " + i + ": " + arr1[i]
                + ", " + (i + 1) + ": " + arr1[i + 1]);
@@ -47,15 +49,16 @@ public class SortTest
       }    
       return true;
    }
+
    public static void main(String[] args){
       boolean validity = true;
       final int k = 1001;
       int[] arr1 = new int[k];
       int[] arr2 = new int[k];
       int[] arr3 = new int[k];
-      SortTimes.randInit(arr1, arr2, arr3, k);
+      //SortTimes.randInit(arr1, arr1, arr3, k);
       //Sorts.selectionSort(arr1, k);
-      Sorts.mergeSort(arr2, k);
+      Sorts.mergeSort(arr2, 7);
       Sorts.quickSort(arr3, k);
       validity = validity && testBounds();
       validity = validity && testInit();
@@ -68,4 +71,3 @@ public class SortTest
           System.out.println("oof, shits broke :(");
    }
 }
-

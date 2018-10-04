@@ -74,9 +74,9 @@ public class Sorts
 
       //copy over
       index = 0;
-      for (int i = left; i < right; i++)
+      for (int i = left; i <= right; i++, index++)
       {
-         arr[i] = temp[index++];
+         arr[i] = temp[index];
       }
    }
 
