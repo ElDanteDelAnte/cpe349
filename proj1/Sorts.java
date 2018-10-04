@@ -80,8 +80,44 @@ public class Sorts
       }
    }
 
+   //initial method
    public static void quickSort(int[] arr, int N)
    {
    
+   }
+
+   private static void quickSort(int[] list, int first, int last)
+   {
+      if (first < last)
+      {
+         setPivotToEnd(list, first, last);
+         int pivotIndex = splitList(list, first, last);
+         quickSort(list, first, pivotIndex - 1);
+         quickSort(lost, pivotIndex + 1, last);
+      }
+   }
+   
+   private static void setPivotToEnd(arr, int left, int right)
+   {
+      int center = (left + right) / 2;
+      //compare first & center, swap smaller to left (if needed)
+      //compare first & last, swap smaller to left (if needed)
+      //compare center & last, swap larger to center (if needed)
+   }
+
+   //returns index of pivot
+   private static int splitList(int[] arr, int left, int right)
+   {
+      //set indexL to first cell of list-segment
+      //set indexR to second-from-last cell of list segment
+      //set pivot to last element of list-segment
+      //WHILE two indicies don't cross over (includes when they are equal)
+         //move indexL right as long as vals < pivot
+         //movr indexR left as long as vals > pivot
+         //IF indecies don't cross over (including equal)
+            //swap values at indexL and indexR
+            //inc indexL, dec indexR
+      //swap value at indexL with pivot
+      //return indexL
    }
 }
