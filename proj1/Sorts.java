@@ -168,7 +168,8 @@ public class Sorts
       //swap value at indexL with pivot
       int tempP = pivot;
       pivot = arr[indexL];
-      arr[right] = tempP;
+      arr[right] = pivot;
+      arr[indexL] = tempP;
       System.out.println("After SplitList" + Arrays.toString(arr));
       //return indexL
       return indexL;
