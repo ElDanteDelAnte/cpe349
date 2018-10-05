@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class Sorts
 {
    public static void selectionSort(int[] arr, int N)
@@ -125,6 +126,7 @@ public class Sorts
          arr[center] = arr[right];
          arr[right] = temp;
       }
+      System.out.println("After setPivotToEnd" +  Arrays.toString(arr));
    }
 
    //returns index of pivot
@@ -162,12 +164,12 @@ public class Sorts
             indexR--;
          }
       }
-      
+      System.out.println("Pivot value preswap:" + pivot);
       //swap value at indexL with pivot
       int tempP = pivot;
       pivot = arr[indexL];
       arr[right] = tempP;
-
+      System.out.println("After SplitList" + Arrays.toString(arr));
       //return indexL
       return indexL;
    }

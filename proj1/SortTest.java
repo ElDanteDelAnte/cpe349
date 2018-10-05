@@ -55,16 +55,16 @@ public class SortTest
       final int k = 1001;
       int[] arr1 = new int[k];
       int[] arr2 = new int[k];
-      int[] arr3 = new int[]{7, 6, 6, 5, 4, 3, 1};
+      int[] arr3 = new int[]{1, 5, 15, 4, 2, 17, 7, 12, 0, 13, 3, 9, 8, 6};
       //SortTimes.randInit(arr1, arr1, arr3, k);
       //Sorts.selectionSort(arr1, k);
       //Sorts.mergeSort(arr2, 7);
-      Sorts.quickSort(arr3, 7);
+      Sorts.quickSort(arr3, 14);
       validity = validity && testBounds();
       validity = validity && testInit();
       //validity = validity && testOrder(arr1, k);
       //validity = validity && testOrder(arr2, k);
-      validity = validity && testOrder(arr3, 7);
+      validity = validity && testOrder(arr3, 14);
       if (validity)
           System.out.println("passed all tests");
       else
