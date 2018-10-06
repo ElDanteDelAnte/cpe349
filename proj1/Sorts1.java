@@ -1,4 +1,4 @@
-public class Sorts
+public class Sorts1
 {
    private static long comps;
 
@@ -154,21 +154,21 @@ public class Sorts
          while (arr[indexL] < pivot)
          {
             indexL++;
-            comp++;
+            comps++;
          }
-         comp++;
+         comps++;
 
          //move indexR left as long as vals > pivot  (check indicies first!)
          while (indexL <= indexR && arr[indexR] > pivot)
          {
             indexR--;
-            comp++;
+            comps++;
          }
 
          //IF indecies don't cross over (including equal)
          if (indexL <= indexR)
          {
-            comp++;
+            comps++;
             //swap values at indexL and indexR
             int temp = arr[indexL];
             arr[indexL] = arr[indexR];

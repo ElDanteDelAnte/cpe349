@@ -29,7 +29,7 @@ public class SortTimes
    }
 
    //generates random lists to be sorted
-   private static void randInit(int[] a1, int[] a2, int[] a3, int N)
+   public static void randInit(int[] a1, int[] a2, int[] a3, int N)
    {
       for (int i = 0; i < N; i++)
       {
@@ -42,9 +42,9 @@ public class SortTimes
 
    public static void main(String[] args)
    {
-      private final long size = 160000;
-      private final long start = 5000;
-      private final int iters = 5;
+      final int size = 160000;
+      final int start = 5000;
+      final int iters = 5;
 
       int[] a1 = new int[size];
       int[] a2 = new int[size];
