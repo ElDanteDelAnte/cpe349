@@ -1,4 +1,11 @@
-import java.util.Arrays;
+/**
+ * Project 1
+ *
+ * @author Sean Reddell (sreddell)
+ * @author Chris Pestano (pestano)
+ * @version 10/5/18
+ */
+
 public class Sorts
 {
    public static void selectionSort(int[] arr, int N)

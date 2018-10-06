@@ -1,3 +1,11 @@
+/**
+ * Project 1
+ *
+ * @author Sean Reddell (sreddell)
+ * @author Chris Pestano (pestano)
+ * @version 10/5/18
+ */
+
 public class SortCounts
 {
    //generates random lists to be sorted
