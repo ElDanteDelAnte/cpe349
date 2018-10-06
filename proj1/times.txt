@@ -1,0 +1,36 @@
+N=5000: T_ss=34, T_ms=2, T_qs=2
+N=5000: T_ss=28, T_ms=0, T_qs=0
+N=5000: T_ss=15, T_ms=0, T_qs=0
+N=5000: T_ss=27, T_ms=0, T_qs=0
+N=5000: T_ss=27, T_ms=1, T_qs=0
+
+N=10000: T_ss=110, T_ms=1, T_qs=1
+N=10000: T_ss=110, T_ms=1, T_qs=1
+N=10000: T_ss=109, T_ms=1, T_qs=1
+N=10000: T_ss=109, T_ms=1, T_qs=1
+N=10000: T_ss=55, T_ms=1, T_qs=1
+
+N=20000: T_ss=221, T_ms=3, T_qs=2
+N=20000: T_ss=220, T_ms=3, T_qs=2
+N=20000: T_ss=220, T_ms=3, T_qs=2
+N=20000: T_ss=221, T_ms=3, T_qs=2
+N=20000: T_ss=219, T_ms=3, T_qs=2
+
+N=40000: T_ss=882, T_ms=7, T_qs=4
+N=40000: T_ss=878, T_ms=7, T_qs=4
+N=40000: T_ss=880, T_ms=8, T_qs=4
+N=40000: T_ss=870, T_ms=7, T_qs=4
+N=40000: T_ss=870, T_ms=8, T_qs=4
+
+N=80000: T_ss=3493, T_ms=17, T_qs=10
+N=80000: T_ss=3510, T_ms=16, T_qs=10
+N=80000: T_ss=3418, T_ms=16, T_qs=10
+N=80000: T_ss=3400, T_ms=38, T_qs=10
+N=80000: T_ss=3569, T_ms=21, T_qs=10
+
+N=160000: T_ss=14189, T_ms=32, T_qs=21
+N=160000: T_ss=14147, T_ms=32, T_qs=21
+N=160000: T_ss=14136, T_ms=32, T_qs=21
+N=160000: T_ss=14115, T_ms=31, T_qs=21
+N=160000: T_ss=14189, T_ms=44, T_qs=26
+
