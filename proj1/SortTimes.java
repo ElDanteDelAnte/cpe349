@@ -1,3 +1,11 @@
+/**
+ * Project 1
+ *
+ * @author Sean Reddell (sreddell)
+ * @author Chris Pestano (pestano)
+ * @version 10/5/18
+ */
+
 public class SortTimes
 {
    //time trackers
@@ -42,26 +50,35 @@ public class SortTimes
 
    public static void main(String[] args)
    {
-      int[] a1 = new int[160000];
-      int[] a2 = new int[160000];
-      int[] a3 = new int[160000];
+      final int size = 160000;
+      final int start = 5000;
+      final int iters = 5;
+
+      int[] a1 = new int[size];
+      int[] a2 = new int[size];
+      int[] a3 = new int[size];
       long ss, ms, qs;
 
-      for (int N = 5000; N <= 160000; N *= 2)
+      //5 times for each N
+      for (int N = start; N <= size; N *= 2)
       {
-         //generate random
-         randInit(a1, a2, a3, N);
+         for (int i = 0; i < iters; i++)
+         {
+            //generate random
+            randInit(a1, a2, a3, N);
 
-         //call each sort
-         ss = selectionTime(a1, N);
-         ms = mergeTime(a2, N);
-         qs = quickTime(a3, N);
+            //call each sort
+            ss = selectionTime(a1, N);
+            ms = mergeTime(a2, N);
+            qs = quickTime(a3, N);
 
-         //print times
-         System.out.print("N=" + N + ": ");
-         System.out.print("T_ss=" + ss + ", ");
-         System.out.print("T_ms=" + ms + ", ");
-         System.out.print("T_qs=" + qs);
+            //print times
+            System.out.print("N=" + N + ": ");
+            System.out.print("T_ss=" + ss + ", ");
+            System.out.print("T_ms=" + ms + ", ");
+            System.out.print("T_qs=" + qs);
+            System.out.println();
+         }
          System.out.println();
       }
    }

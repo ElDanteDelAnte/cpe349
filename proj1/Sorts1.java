@@ -6,10 +6,13 @@
  * @version 10/5/18
  */
 
-public class Sorts
+public class Sorts1
 {
-   public static void selectionSort(int[] arr, int N)
+   private static long comps;
+
+   public static long selectionSort(int[] arr, int N)
    {
+      comps = 0;
       int minIndex, tempVal;
       
       //find min
@@ -19,6 +22,7 @@ public class Sorts
             if(arr[j] < arr[minIndex]){
                minIndex = j;
             }    
+            comps++;
          }    
 
       //swap
@@ -26,12 +30,15 @@ public class Sorts
       arr[i] = arr[minIndex];
       arr[minIndex] = tempVal;
       }    
+      return comps;
    }
 
    //initial call
-   public static void mergeSort(int[] arr, int N)
+   public static long mergeSort(int[] arr, int N)
    {
+      comps = 0;
       mergeSort(arr, 0, N - 1);
+      return comps;
    }
 
    //recursion
@@ -67,6 +74,7 @@ public class Sorts
          {
             temp[index++] = arr[index2++];
          }
+         comps++;
       }
       
       //find unfinished
@@ -89,9 +97,11 @@ public class Sorts
    }
 
    //initial method
-   public static void quickSort(int[] arr, int N)
+   public static long quickSort(int[] arr, int N)
    {
+      comps = 0;
       quickSort(arr, 0, N - 1);
+      return comps;
    }
 
    private static void quickSort(int[] list, int first, int last)
@@ -117,6 +127,7 @@ public class Sorts
          arr[left] = arr[center];
          arr[center] = temp;
       }
+      comps++;
 
       //compare first & last, swap smaller to left (if needed)
       if (arr[left] > arr[right])
@@ -125,6 +136,7 @@ public class Sorts
          arr[left] = arr[right];
          arr[right] = temp;
       }
+      comps++;
 
       //compare center & last, swap larger to center (if needed)
       if (arr[center] < arr[right])
@@ -133,6 +145,7 @@ public class Sorts
          arr[center] = arr[right];
          arr[right] = temp;
       }
+      comps++;
    }
 
    //returns index of pivot
@@ -149,17 +162,21 @@ public class Sorts
          while (arr[indexL] < pivot)
          {
             indexL++;
+            comps++;
          }
+         comps++;
 
          //move indexR left as long as vals > pivot  (check indicies first!)
          while (indexL <= indexR && arr[indexR] > pivot)
          {
             indexR--;
+            comps++;
          }
 
          //IF indecies don't cross over (including equal)
          if (indexL <= indexR)
          {
+            comps++;
             //swap values at indexL and indexR
             int temp = arr[indexL];
             arr[indexL] = arr[indexR];
