@@ -1,15 +1,21 @@
 import Java.util.Scanner;
 import java.io.*; 
 public class MatrixWork
+{
 
    public static int[][] matrixProduct(int[][] A int[][] B){
       //try catch block? throw IllegalArgumentException if A[0].length != B.length
-      //n = A.length
-      //k = B.length
-      //m = B[1].length
+      int n = A.length
+      int k = B.length
+      int m = B[0].length
+
+      //incompatible dimensions
+      if (A[0].length != k)
+         throw new IllegalArgumentExceptoin();
+
       //DefineC[1..n, 1..m], initialize all cells with 0 // C has n rows and m columns
       //for i = 1 to n
-      // forj = 1 to m
+      // for j = 1 to m
       //    for l = 1 to k 
       //       C[i, j] = C[i, j] + A[i,l] * B[l, j]
       //return C;
