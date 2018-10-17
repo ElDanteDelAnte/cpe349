@@ -21,7 +21,7 @@ public class MatrixWork
 
       //incompatible dimensions
       if (A[0].length != k)
-         throw new IllegalArgumentException();
+         throw new IllegalArgumentException("Illegal matrix dimensions");
 
       //DefineC[1..n, 1..m], 
       int[][] product = new int[n][m];
@@ -130,7 +130,7 @@ public class MatrixWork
       }
       catch(IllegalArgumentException e)
       {
-         System.out.println("Illegal matrix dimensions" );
+         System.out.println(e.getMessage());
       }
 
       //close scanners
