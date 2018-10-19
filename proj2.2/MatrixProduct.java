@@ -1,5 +1,5 @@
 /**
- * A class for multiplying matricies via recursion.
+ * Project 2
  *
  * @author Sean Reddell sreddell
  * @author Chris Pestano pestano
