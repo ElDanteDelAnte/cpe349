@@ -29,7 +29,7 @@ public class MatrixProduct
       {
          for (int j = 0; j < n; j++)
          {
-            S[i][i] = A[startrowA + i][startcolA + j] + B[startrowB + i][startcolB +j];
+            S[i][j] = A[startrowA + i][startcolA + j] + B[startrowB + i][startcolB +j];
          }
       }
       return S;
@@ -45,7 +45,7 @@ public class MatrixProduct
       {
          for (int j = 0; j < n; j++)
          {
-            S[i][i] = A[startrowA + i][startcolA + j] - B[startrowB + i][startcolB +j];
+            S[i][j] = A[startrowA + i][startcolA + j] - B[startrowB + i][startcolB +j];
          }
       }
       return S;
@@ -151,7 +151,7 @@ public class MatrixProduct
                                                 int[][] B, int startrowB, int startcolB,
                                                 int n)
    {
-      int[][] C = new int[A.length][A.length];
+      int[][] C = new int[n][n];
       //base case
       if (n == 1)
       {
@@ -251,11 +251,61 @@ public class MatrixProduct
 
          /* Calculate C quadrants */
          //C11 = P5 + P4 - (P2 - P6)
+         C11 = subQuad(addQuad(P5, 0, 0,
+                               P4, 0, 0,
+                               n/2), 0, 0,
+                       subQuad(P2, 0, 0,
+                               P6, 0, 0,
+                               n/2), 0, 0,
+                       n/2);
+
          //C12 = P1 + P2
+         C12 = addQuad(P1, 0, 0,
+                       P2, 0, 0,
+                       n/2);
+
          //C21 = P3 + P4
+         C21 = addQuad(P3, 0, 0,
+                       P4, 0, 0,
+                       n/2);
+
          //C22 = P5 + P1 - (P3 + P7)
+         C22 = subQuad(addQuad(P5, 0, 0,
+                               P1, 0, 0,
+                               n/2), 0, 0,
+                       addQuad(P3, 0, 0,
+                               P7, 0, 0,
+                               n/2), 0, 0,
+                       n/2);
 
          /* Fill C matrix */
+          //C11
+          for (int i = 0; i < n/2; i++){
+              for (int j = 0; j < n/2; j++){
+                  C[i][j] = C11[i][j];
+              }
+          }
+          
+          //C12
+          for (int i = 0; i < n/2; i++){
+              for (int j = 0; j < n/2; j++){
+                  C[i][j + n/2] = C12[i][j];
+              }
+          }
+
+          //C21
+          for (int i = 0; i < n/2; i++){
+              for (int j = 0; j < n/2; j++){
+                  C[i + n/2][j] = C21[i][j];
+              }
+          }
+
+          //C22
+          for (int i = 0; i < n/2; i++){
+              for (int j = 0; j < n/2; j++){
+                  C[i + n/2][j + n/2] = C22[i][j];
+              }
+          }
 
       }
       return C;
