@@ -51,7 +51,7 @@ public class Tester
       sets[3] = SANSNICK;
       sets[4] = WEIRD;
 
-      System.out.println("Testing change_DP and change_greedy algortihms");
+      System.out.println("Testing change_DP and change_greedy algorithms");
       for (int i = 0; i < sets.length; i++)
       {
          int matches = test(sets[i]);

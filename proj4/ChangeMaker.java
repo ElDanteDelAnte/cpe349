@@ -87,6 +87,8 @@ public class ChangeMaker
 
       System.out.println();
       System.out.println("Optimal coin count: " + c);
+
+      System.out.println();
    }
 
    public static int[] change_greedy(int n, int[] d)
