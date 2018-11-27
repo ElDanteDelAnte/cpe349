@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 public class DiGraph
 {
-   LinkedList[] adj;    //adjacency matrix
+   private LinkedList[] adj;    //adjacency matrix
 
    //constructor, initalizes matrix
    public DiGraph(int N)
@@ -37,12 +37,14 @@ public class DiGraph
    {
       //for each list in the array
          //add edge counts of the list
+      return -1;
    }
 
    //give count of verticies of the graph
    public int vertexCount()
    {
       //this is literally the length of the array
+      return adj.length;
    }
 
    //print the edges of the graph
