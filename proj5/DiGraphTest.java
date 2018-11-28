@@ -12,6 +12,18 @@ public class DiGraphTest
 {
    private static Scanner input;
 
+   //display the user menu
+   private static void printMenu()
+   {
+      System.out.println("Choose one of the following operations:");
+      System.out.println("- add edge (enter a)");
+      System.out.println("- delete edge (enter d)");
+      System.out.println("- edge count (enter e)");
+      System.out.println("- vertex count (enter v)");
+      System.out.println("-print graph (enter p)");
+      System.out.println("- Quit (enter q)");
+   }
+
    //add an edge to the graph
    private static void promptAdd(DiGraph graph)
    {
@@ -91,15 +103,18 @@ public class DiGraphTest
       DiGraph graph = new DiGraph(N);
 
       //print menu
+      printMenu();
 
       //user operations
       String cmd = "dummy";
 
-      while (cmd != "q")
+      while (!cmd.equals("q"))
       {
          System.out.print("Enter command: ");
-         cmd = input.nextLine();
-         parse(cmd, graph);
+         cmd = input.next();
+         input.nextLine();             //flush input
+         if (!cmd.equals("q"))
+            parse(cmd, graph);
       } 
 
       System.out.println("Quitting. Have a nice day.");
