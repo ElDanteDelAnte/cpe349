@@ -10,11 +10,15 @@ import java.util.LinkedList;
 
 public class DiGraph
 {
-   private LinkedList[] adj;    //adjacency matrix
+   private LinkedList<Integer>[] adj;    //adjacency matrix
 
    //constructor, initalizes matrix
    public DiGraph(int N)
    {
+      /* Create list */
+      adj = (LinkedList<Integer>[]) new LinkedList[N];
+
+      /* Fill list */
    }
 
    //adds directed edge to the matrix
