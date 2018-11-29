@@ -20,7 +20,8 @@ public class DiGraphTest
       System.out.println("- delete edge (enter d)");
       System.out.println("- edge count (enter e)");
       System.out.println("- vertex count (enter v)");
-      System.out.println("-print graph (enter p)");
+      System.out.println("- print graph (enter p)");
+      System.out.println("- topological sort (enter t)");
       System.out.println("- Quit (enter q)");
    }
 
@@ -45,7 +46,24 @@ public class DiGraphTest
       input.nextLine();          //flush input
       System.out.println("Removed edge from " + from + " to " + to);
    }
+   private static void sortGraph(DiGraph graph)
+   {  
+      System.out.println("Sorting the graph:");
+      try{
+         int[] sorted = graph.topSort();
+         for (int i = 0; i < graph.vertexCount(); i++){
+            System.out.print(sorted[i]);
+            if(i < graph.vertexCount() - 1){
+               System.out.print(", ");
+            }
 
+         }    
+      System.out.println();
+      }
+      catch(IllegalArgumentException e){
+         System.out.println("Cycle detected");
+      }
+   }
    //interpret a user command
    private static void parse(String cmd, DiGraph graph)
    {
@@ -82,6 +100,10 @@ public class DiGraphTest
          case 'p':
             System.out.println("The graph is the following:");
             graph.print();
+            break;
+         //print the sorted graph
+         case 't':
+            sortGraph(graph);
             break;
          //invalid input
          default:

@@ -7,6 +7,7 @@
  */
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class DiGraph
 {
@@ -69,6 +70,42 @@ public class DiGraph
       //this is literally the length of the array
       return adj.length;
    }
+   private int[] indegrees(){
+      int n = vertexCount();
+      int[] inArr = new int[n];
+      for(int u = 0; u < n; u++){
+        for(Integer v : adj[u]){
+            inArr[v]++;
+        }
+      }
+      return inArr;
+   }
+
+   public int[] topSort(){
+      int n = vertexCount();
+      int u;
+      int[] inArr = indegrees();
+      int[] sorted = new int[n];
+      Queue<Integer> q = new LinkedList<Integer>();
+      for (u = 0; u < n; u++){
+         if (inArr[u] == 0){
+             q.add(u);
+         }
+      }
+      int i = 0;
+      while (q.peek() != null){
+         u = q.remove();
+         sorted[i] = u + 1;
+         i++;
+         for(Integer v : adj[u]){
+            inArr[v]--;
+            if(inArr[v] == 0){
+                q.add(v);
+            }
+         }
+      }
+      return sorted;
+   }     
 
    //print the edges of the graph
    public void print()
@@ -81,7 +118,7 @@ public class DiGraph
          //for each element in list
          for(int j = 0; j < adj[i].size(); j++){
             //print #
-            System.out.print(" "+ (adj[i].get(j) + 1));
+            System.out.print(" " + (adj[i].get(j) + 1));
             //if not last element
             if(j < adj[i].size() - 1){
                //print ","
