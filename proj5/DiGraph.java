@@ -104,6 +104,9 @@ public class DiGraph
             }
          }
       }
+      if(i != n){
+         throw new IllegalArgumentException();
+      }
       return sorted;
    }     
 
