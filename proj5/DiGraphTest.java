@@ -133,8 +133,7 @@ public class DiGraphTest
       while (!cmd.equals("q"))
       {
          System.out.print("Enter command: ");
-         cmd = input.next();
-         input.nextLine();             //flush input
+         cmd = input.nextLine();             //flush input
          if (!cmd.equals("q"))
             parse(cmd, graph);
       } 
