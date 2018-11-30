@@ -11,6 +11,7 @@ import java.util.Queue;
 
 public class DiGraph
 {
+   /* PART 1 & 2 */
    private LinkedList<Integer>[] adj;    //adjacency matrix
 
    //constructor, initalizes matrix
@@ -70,6 +71,7 @@ public class DiGraph
       //this is literally the length of the array
       return adj.length;
    }
+
    private int[] indegrees(){
       int n = vertexCount();
       int[] inArr = new int[n];
@@ -131,5 +133,77 @@ public class DiGraph
          System.out.println();
       }
 
+   }
+
+   /* PART 3 & 4 */
+   //built in BFS
+   private class VertexInfo
+   {
+      public int distance;
+      public int parent;
+   }
+
+   private VertexInfo[] BFS(int s)
+   {
+      VertexInfo[] nodes = new VertexInfo[vertexCount()];
+      return nodes;
+   }
+
+   //detects path between verticies
+   public boolean isTherePath(int from, int to)
+   {
+      return false;
+   }
+
+   //count edges between verticies
+   public int lengthOfPath(int from, int to)
+   {
+      int length = -1;
+      return length;
+   }
+
+   //display path between verticies
+   public void printPath(int from, int to)
+   {
+      //check for path
+      if (!isTherePath(from, to))
+      {
+         System.out.println("There is no path");
+         return;
+      }
+      //else: path exists
+   }
+
+   //node for the BFS tree
+   private class TreeNode
+   {
+      public int v;
+      public LinkedList<TreeNode> children;
+
+      public TreeNode(int v)
+      {
+         this.v = v;
+         this.children = new LinkedList<TreeNode>();
+      }
+   }
+
+   //build the tree
+   private TreeNode buildTree(int s)
+   {
+      //build nodes
+      TreeNode root = new TreeNode(s);
+
+      return root;
+   }
+
+   //print the tree
+   public void printTree(int s)
+   {
+      //build tree
+   }
+
+   //recursive print call
+   private void printNode(TreeNode root)
+   {
    }
 }

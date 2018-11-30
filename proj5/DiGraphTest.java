@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class DiGraphTest
 {
+   /* PART 1 & 2 */
    private static Scanner input;
 
    //display the user menu
@@ -22,6 +23,10 @@ public class DiGraphTest
       System.out.println("- vertex count (enter v)");
       System.out.println("- print graph (enter p)");
       System.out.println("- topological sort (enter t)");
+      System.out.println("- detect path (enter i)");
+      System.out.println("- path length (enter l)");
+      System.out.println("- print path (enter s)");
+      System.out.println("- print BFS tree (enter b");
       System.out.println("- Quit (enter q)");
    }
 
@@ -46,6 +51,7 @@ public class DiGraphTest
       input.nextLine();          //flush input
       System.out.println("Removed edge from " + from + " to " + to);
    }
+
    private static void sortGraph(DiGraph graph)
    {  
       System.out.println("Sorting the graph:");
@@ -64,6 +70,7 @@ public class DiGraphTest
          System.out.println("Cycle detected");
       }
    }
+
    //interpret a user command
    private static void parse(String cmd, DiGraph graph)
    {
@@ -105,11 +112,22 @@ public class DiGraphTest
          case 't':
             sortGraph(graph);
             break;
+         //detect path
+         case 'i':
+            detectPath(graph);
+            break;
+         //find length of shortest path
+         case 'l':
+            findLength(graph);
+            break;
+         //print shortest path
+         case 's':
+            displayPath(graph);
+            break;
          //invalid input
          default:
             System.out.println("Command not recognized");
             break;
-
       }
    }
 
@@ -139,5 +157,41 @@ public class DiGraphTest
       } 
 
       System.out.println("Quitting. Have a nice day.");
+   }
+
+   /* PART 3 & 4 */
+   private static void detectPath(DiGraph graph)
+   {
+      System.out.println("Give 'from' then 'to' verticies:");
+      int from = input.nextInt();
+      int to = input.nextInt();
+      input.nextLine();                      //flush input
+
+      if (graph.isTherePath(from, to))
+         System.out.println("There is a path from " + from + " to " + to);
+      else
+         System.out.println("No path from " + from + " to " + to);
+   }
+
+   //prints -1 as length if no path exists
+   private static void findLength(DiGraph graph)
+   {
+      System.out.println("Give 'from' then 'to' verticies:");
+      int from = input.nextInt();
+      int to = input.nextInt();
+      input.nextLine();                      //flush input
+
+      System.out.println("Path length: " + graph.lengthOfPath(from, to));
+   }
+
+   //prints shortest path (if it exists)
+   private static void displayPath(DiGraph graph)
+   {
+      System.out.println("Give 'from' then 'to' verticies:");
+      int from = input.nextInt();
+      int to = input.nextInt();
+      input.nextLine();                      //flush input
+
+      graph.printPath(from, to);
    }
 }
