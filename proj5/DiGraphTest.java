@@ -26,7 +26,7 @@ public class DiGraphTest
       System.out.println("- detect path (enter i)");
       System.out.println("- path length (enter l)");
       System.out.println("- print path (enter s)");
-      System.out.println("- print BFS tree (enter b");
+      System.out.println("- print BFS tree (enter b)");
       System.out.println("- Quit (enter q)");
    }
 
@@ -48,7 +48,7 @@ public class DiGraphTest
       int from = input.nextInt();
       int to = input.nextInt();
       graph.deleteEdge(from, to);
-      input.nextLine();          //flush input
+      input.nextLine();                    //flush input
       System.out.println("Removed edge from " + from + " to " + to);
    }
 
@@ -139,7 +139,7 @@ public class DiGraphTest
       /* create graph */
       System.out.print("Enter number of verticies: ");
       int N = input.nextInt();
-      input.nextLine();                //flush input
+      input.nextLine();                      //flush input
       DiGraph graph = new DiGraph(N);
 
       //print menu

@@ -139,20 +139,48 @@ public class DiGraph
    //built in BFS
    private class VertexInfo
    {
-      public int distance;
-      public int parent;
+      public int dist = -1;
+      public int parent = -1;
    }
 
+   //S is a natural index
    private VertexInfo[] BFS(int s)
    {
       VertexInfo[] nodes = new VertexInfo[vertexCount()];
+      //initialize predecessors and distance
+      for (int i = 0; i < vertexCount(); i++)
+      {
+         nodes[i] = new VertexInfo();
+      }
+
+      nodes[s - 1].dist = 0;        //set source to 0
+      Queue<Integer> q = new LinkedList<Integer>();
+      q.add(new Integer(s - 1));
+
+      while (q.peek() != null)
+      {
+         Integer u = q.remove();
+
+         for (Integer v : adj[u])
+         {
+            if (nodes[v].dist < 0)
+            {
+               nodes[v].dist = nodes[u].dist + 1;
+               nodes[v].parent = u; 
+               q.add(v);
+            }
+         }
+      }
+
       return nodes;
    }
 
    //detects path between verticies
    public boolean isTherePath(int from, int to)
    {
-      return false;
+      VertexInfo[] search = BFS(from - 1);
+
+      return search[to - 1].dist >= 0;
    }
 
    //count edges between verticies
@@ -165,13 +193,22 @@ public class DiGraph
    //display path between verticies
    public void printPath(int from, int to)
    {
-      //check for path
+      //check for path (natural indexing)
       if (!isTherePath(from, to))
       {
          System.out.println("There is no path");
          return;
       }
       //else: path exists
+      VertexInfo[] search = BFS(from);    //call with natural index
+      String output = "";
+      while (from != to)
+      {
+         output = "->" + to + output;
+         to = search[to - 1].parent + 1;  //from natural indexing and back
+      }
+      output = from + output;
+      System.out.println(output);
    }
 
    //node for the BFS tree
