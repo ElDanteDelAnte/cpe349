@@ -178,7 +178,7 @@ public class DiGraph
    //detects path between verticies
    public boolean isTherePath(int from, int to)
    {
-      VertexInfo[] search = BFS(from - 1);
+      VertexInfo[] search = BFS(from);    //S is a natural index
 
       return search[to - 1].dist >= 0;
    }
@@ -186,8 +186,8 @@ public class DiGraph
    //count edges between verticies
    public int lengthOfPath(int from, int to)
    {
-      int length = -1;
-      return length;
+      VertexInfo[] search = BFS(from);    //S is a natural index
+      return search[to - 1].dist;
    }
 
    //display path between verticies
@@ -214,7 +214,7 @@ public class DiGraph
    //node for the BFS tree
    private class TreeNode
    {
-      public int v;
+      public int v;  //non-natural index
       public LinkedList<TreeNode> children;
 
       public TreeNode(int v)
@@ -224,7 +224,7 @@ public class DiGraph
       }
    }
 
-   //build the tree
+   //S is natural index
    private TreeNode buildTree(int s)
    {
       //build nodes
@@ -233,14 +233,30 @@ public class DiGraph
       return root;
    }
 
-   //print the tree
+   //S is natural index
    public void printTree(int s)
    {
       //build tree
+      TreeNode root = buildTree(s);
+
+      printNode(root, 0);
    }
 
    //recursive print call
-   private void printNode(TreeNode root)
+   private void printNode(TreeNode root, int depth)
    {
+      //indentation
+      for (int i = 0; i < depth; i++)
+      {
+         System.out.print("    ");
+      }
+      //print self (as natural index)
+      System.out.println(root.v + 1);
+
+      //print children
+      for (TreeNode child : root.children)
+      {
+         printNode(child, depth + 1);
+      }
    }
 }

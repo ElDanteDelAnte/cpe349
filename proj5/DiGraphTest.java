@@ -124,6 +124,10 @@ public class DiGraphTest
          case 's':
             displayPath(graph);
             break;
+         //print BFS tree
+         case 'b':
+            promptPrintTree(graph);
+            break;
          //invalid input
          default:
             System.out.println("Command not recognized");
@@ -193,5 +197,14 @@ public class DiGraphTest
       input.nextLine();                      //flush input
 
       graph.printPath(from, to);
+   }
+
+   private static void promptPrintTree(DiGraph graph)
+   {
+      System.out.println("Give starting vertex");
+      int from = input.nextInt();
+      input.nextLine();                      //flush input
+
+      graph.printTree(from);
    }
 }
